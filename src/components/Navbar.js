@@ -1,7 +1,11 @@
 import {AiOutlineShoppingCart} from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+
+  const cartProducts = useSelector(state => state.cart);
+
   return (
     <div className='navbar'>
         <div className='left'>
@@ -11,7 +15,7 @@ const Navbar = () => {
             <NavLink to="/cart">
                 <span>cart</span>
                 <AiOutlineShoppingCart/>
-                <span className='count'>0</span>
+                <span className='count'>{cartProducts.length}</span>
             </NavLink>
         </div>
     </div>

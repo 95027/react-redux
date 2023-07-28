@@ -27,6 +27,8 @@ button:hover{
   background-color: #434;
   color: #fff;
 }
+
+/* ======= navbar component*/
 .navbar{
   display: flex;
   align-items: center;
@@ -34,6 +36,8 @@ button:hover{
   height: 60px;
   background-color: #454;
   padding: 0 20px;
+  position: sticky;
+  top: 0;
 }
 .navbar .right a{
   display: flex;
@@ -61,12 +65,15 @@ button:hover{
   justify-content: center;
 }
 
+/* ======= loading component ===== */
 .loading{
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
+
+/* ======== products page ========== */
 .products{
   max-width: 1280px;
   margin: auto;
@@ -86,10 +93,11 @@ img{
   gap: 18px;
 }
 .products .list .listItem{
-  width: 380px;
+  max-width: 380px;
   box-shadow: 0 0 3px gray;
   border-radius: 12px;
   padding: 10px;
+  margin: 0 2px;
   text-align: center;
 }
 .products .list .listItem .desc{
@@ -109,4 +117,22 @@ img{
 }
 .listItem img:hover{
   transform: scale(1.1);
+}
+
+/* ======= cart items page ======== */
+.cart{
+  max-width: 300px;
+}
+.cart img{
+  width: 120px;
+  height: 80px;
+}
+.cart button:hover{
+  background-color: darkred;
+}
+.cart .empty{
+  text-align: center;
+  font-weight: 900;
+  color: black;
+  margin: 40px 0;
 }

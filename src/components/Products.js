@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add } from '../store/cartSlice';
 
 const Products = () => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(()=>{
         fetch('https://fakestoreapi.com/products')
@@ -21,12 +21,17 @@ const Products = () => {
 
     },[]);
 
-    console.log(products);
+   // console.log(products);
 
     if(loading){
         return <Loading/>
     }
 
+    const addToCart = (item)=>{
+        // dispatch add action
+        dispatch(add(item));
+
+    }
 
   return (
     <div className='products'>
@@ -45,13 +50,12 @@ const Products = () => {
                         <h3>{title}</h3>
                         <p className='desc'>{description.slice(0,150)}...</p>
                         <p className='price'>Price : <mark>$ {price}</mark></p>
-                        <button onClick={()=>navigate("/cart")}>Add to Cart</button>
+                        <button onClick={()=>addToCart(item)}>Add to Cart</button>
                     </div>
                 })
             }
 
         </div>
-
     </div>
   )
 }
