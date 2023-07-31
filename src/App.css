@@ -10,7 +10,7 @@ a{
   color: white;
   text-decoration: none;
 }
-h1, h3{
+h1, h4{
   color: gray;
 }
 p{
@@ -38,6 +38,7 @@ button:hover{
   padding: 0 20px;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 .navbar .right a{
   display: flex;
@@ -93,7 +94,7 @@ img{
   gap: 18px;
 }
 .products .list .listItem{
-  max-width: 380px;
+  width: 380px;
   box-shadow: 0 0 3px gray;
   border-radius: 12px;
   padding: 10px;
@@ -127,7 +128,12 @@ img{
   width: 120px;
   height: 80px;
 }
-.cart button:hover{
+.cart button.clear{
+  font-size: 18px;
+  margin: 20px 0;
+  padding: 10px 20px;
+}
+.cart button.clear:hover{
   background-color: darkred;
 }
 .cart .empty{
@@ -135,4 +141,21 @@ img{
   font-weight: 900;
   color: black;
   margin: 40px 0;
+}
+
+
+/* ===== media queries ======= */
+@media (max-width:992px) {
+  .navbar .right a{
+    font-size: 18px;
+  }
+  .navbar .left{
+    font-size: 18px;
+  }
+  h1{
+    font-size: 24px;
+  }
+  p{
+    font-size: 12px;
+  }
 }

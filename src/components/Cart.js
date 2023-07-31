@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from '../store/cartSlice';
+import { remove, clearCart } from '../store/sliceCart';
 
 const Cart = () => {
 
-  const cartProducts = useSelector(state => state.cart);
+  const {cartItems, amount} = useSelector(state => state.cart);
 
   const dispatch = useDispatch();
 
@@ -16,10 +16,10 @@ const Cart = () => {
         <div className='heading'>
             <h1 >Cart Items</h1>
         </div>
-        <h3 className='empty'>{cartProducts.length === 0 ? "Cart is empty" : null}</h3>
+        <h3 className='empty'>{amount === 0 ? "Cart is empty" : null}</h3>
         <div className='list'>
             {
-                cartProducts.map((item)=>{
+                cartItems.map((item)=>{
                     const {id, image, title, category, price} = item;
                     return <div key={id} className='listItem'>
                         <h1>{category}</h1>
@@ -32,7 +32,9 @@ const Cart = () => {
                     </div>
                 })
             }
-
+            {amount !==0 && (
+            <button className='clear' onClick={()=>dispatch(clearCart())}>Clear Cart</button>
+            )}
         </div>
     </div>
   )

@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
-  const cartProducts = useSelector(state => state.cart);
+  const {amount} = useSelector(state => state.cart);
+
 
   return (
     <div className='navbar'>
@@ -15,7 +16,7 @@ const Navbar = () => {
             <NavLink to="/cart">
                 <span>cart</span>
                 <AiOutlineShoppingCart/>
-                <span className='count'>{cartProducts.length}</span>
+                <span className='count'>{amount}</span>
             </NavLink>
         </div>
     </div>
